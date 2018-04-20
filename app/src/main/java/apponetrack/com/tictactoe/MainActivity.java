@@ -1,5 +1,6 @@
 package apponetrack.com.tictactoe;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.constraint_layout);
+        setContentView(R.layout.main_activity_constraint_layout);
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
@@ -77,6 +78,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.exitGame:
                 MainActivity.this.finish();
                 break;
+            case R.id.about:
+                Intent intent = new Intent(this, AboutActivity.class);
+                startActivity(intent);
+                break;
+                default:
+                    break;
         }
 
         return true;
