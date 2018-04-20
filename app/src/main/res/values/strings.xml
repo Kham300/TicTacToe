@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="first_human">You GO first!</string>
+    <string name="turn_human">Your turn</string>
+    <string name="turn_computer">Android\'s turn</string>
+    <string name="result_tie">It\'s a tie</string>
+    <string name="result_human_wins">You won!</string>
+    <string name="result_android_wins">Android won!</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="info">Info</string>
+    <string name="human">Human:  </string>
+    <string name="ties">Ties:  </string>
+    <string name="android">Bot:  </string>
+    <string name="contact_heading">Contact info</string>
+    <string name="contact_info">
+        <b>Name:</b>Khamidullo Mamytov\n
+        <b>Email:</b>boogaga3000@gmail.com\n
+        <b>Phone</b>+79375250373
+    </string>
+    <string name="about_heading">About</string>
+    <string name="about_info"> Dear oneTrack, for you i made this app to allow you play
+        a game of tic tac toe against android.the rounds will rotate who gets to play first.
+        Also, the app will keep track and display the result of the games at the bottom of screen.
+        Have FUN!!! </string>
+    <string name="newGame_label">new Game</string>
+    <string name="exitGame_label">Exit Game</string>
+</resources>
