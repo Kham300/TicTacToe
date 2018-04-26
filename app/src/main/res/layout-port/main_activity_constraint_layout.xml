@@ -33,13 +33,13 @@
 
     <TextView
         android:id="@+id/information"
-        android:layout_width="384dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="90dp"
         android:gravity="center"
         android:text="@string/info"
-        android:textSize="25sp"
+        android:textSize="35sp"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
@@ -104,12 +104,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:stateListAnimator="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498"
-        android:stateListAnimator="@null"
+        app:layout_constraintVertical_bias="0.592"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -170,16 +170,16 @@
         android:layout_height="50dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/vs" />
+        app:srcCompat="@drawable/team_vs" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="50dp"
-        android:layout_height="66dp"
+        android:layout_width="60dp"
+        android:layout_height="75dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toEndOf="@+id/androidCount"
@@ -188,8 +188,8 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="50dp"
-        android:layout_height="65dp"
+        android:layout_width="60dp"
+        android:layout_height="75dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toStartOf="@+id/humanCount"
@@ -198,13 +198,15 @@
 
     <Button
         android:id="@+id/reset_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Reset"
+        android:textSize="20sp"
+        android:text="C L E A R"
+        android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

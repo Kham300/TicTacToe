@@ -6,6 +6,8 @@
     <string name="result_tie">It\'s a tie</string>
     <string name="result_human_wins">You won!</string>
     <string name="result_android_wins">Android won!</string>
+    <string name="alert_message">Are you sure to start a new Game?
+        The score will be reset to zero!</string>
     <string name="one">1</string>
     <string name="two">2</string>
     <string name="three">3</string>
@@ -27,6 +29,6 @@
         a game of tic tac toe against the android. Rounds will rotate who gets to play first.
         Also, the app will keep track and display the result of the games at the bottom of screen.
         Have FUN!!! </string>
-    <string name="newGame_label">new Game</string>
+    <string name="newGame_label">New Game</string>
     <string name="exitGame_label">Exit Game</string>
 </resources>

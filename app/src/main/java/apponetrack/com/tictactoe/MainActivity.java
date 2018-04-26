@@ -1,7 +1,9 @@
 package apponetrack.com.tictactoe;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,8 +21,13 @@ public class MainActivity extends AppCompatActivity {
 
     private TicTacToeGame mGame;
 
+    Dialog mDialog;
+
     private Button mBoardButtons[];
-    private Button mButtonReset;
+    private Button mButtonClear;
+    private Button mButtonDialogYes;
+    private Button mButtonDialogNo;
+
 
     private TextView mInfoTextViews;
     private TextView mHumanCount;
@@ -50,16 +57,29 @@ public class MainActivity extends AppCompatActivity {
         mBoardButtons[7] = findViewById(R.id.eight);
         mBoardButtons[8] = findViewById(R.id.nine);
 
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/Zeebraa.ttf");
+
         mInfoTextViews = findViewById(R.id.information);
+        mInfoTextViews.setTypeface(custom_font);
         mHumanCount = findViewById(R.id.humanCount);
+        mHumanCount.setTypeface(custom_font);
         mAndroidCount = findViewById(R.id.androidCount);
-        mButtonReset = findViewById(R.id.reset_button);
+        mAndroidCount.setTypeface(custom_font);
+        mButtonClear = findViewById(R.id.reset_button);
+        mButtonClear.setTypeface(custom_font);
 
         mHumanCount.setText(Integer.toString(mHumanCounter));
         mAndroidCount.setText(Integer.toString(mAndroidCounter));
 
         mGame = new TicTacToeGame();
         startNewGame();
+
+        mButtonClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startNewGame();
+            }
+        });
     }
 
     @Override
@@ -73,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.newGame:
-                startNewGame();
+                myCustomAlertDialog();
                 break;
             case R.id.exitGame:
                 MainActivity.this.finish();
@@ -85,13 +105,11 @@ public class MainActivity extends AppCompatActivity {
                 default:
                     break;
         }
-
         return true;
     }
 
     private void startNewGame(){
         mGame.clearBoard();
-        mButtonReset.setOnClickListener(new ResetButtonClickListener());
 
         for (int i = 0; i < mBoardButtons.length; i++){
             mBoardButtons[i].setEnabled(true);
@@ -123,12 +141,40 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private class ResetButtonClickListener implements  View.OnClickListener{
+    public void myCustomAlertDialog(){
+        mDialog = new Dialog(MainActivity.this);
+        mDialog.setContentView(R.layout.custom_alert_dialog);
+        mDialog.setTitle("New Game");
 
-        @Override
-        public void onClick(View view) {
-            startNewGame();
-        }
+        mButtonDialogYes = mDialog.findViewById(R.id.alert_yes);
+        mButtonDialogNo = mDialog.findViewById(R.id.alert_no);
+
+        mButtonDialogYes.setEnabled(true);
+        mButtonDialogNo.setEnabled(true);
+
+        mButtonDialogYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resetGame();
+            }
+        });
+        mButtonDialogNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDialog.cancel();
+            }
+        });
+        mDialog.show();
+    }
+
+    private void resetGame() {
+        mHumanFirst = true;
+        mHumanCount.setText("0");
+        mAndroidCount.setText("0");
+        mAndroidCounter = 0;
+        mHumanCounter = 0;
+        startNewGame();
+        mDialog.cancel();
     }
 
     private class ButtonClickListener implements View.OnClickListener{
@@ -174,4 +220,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
 }
